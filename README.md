@@ -2,90 +2,84 @@
 # NinjaV7
 
 ## Overview
-NinjaV7 is a robust UI Automation Framework built using Java, Selenium WebDriver, TestNG, and Maven.  
-It follows industry best practices such as the Page Object Model (POM) design pattern to ensure scalability, maintainability, and clean separation of concerns.
+NinjaV7 is a UI Automation Framework built with **Java**, **Selenium WebDriver**, **TestNG**, and **Maven**.  
+It follows the **Page Object Model (POM)** design pattern to keep tests maintainable and scalable.
 
-This framework simulates a real-world enterprise automation project designed for CI/CD integration and parallel execution.
-
----
-
-## Key Highlights
-
-- Built with Java + Selenium + TestNG
-- Implements Page Object Model (POM)
-- Supports parallel execution
-- Uses explicit waits to reduce test flakiness
-- Maven-managed dependencies
-- CI/CD ready structure
-
----
+In addition to UI testing, the framework includes:
+- **Extent Reports** (HTML reporting)
+- **Log4j2** (logging)
+- **Apache POI** (Excel/test data support)
+- **Commons Email** (email utilities)
 
 ## Tech Stack
-
 - Java
 - Selenium WebDriver
 - TestNG
 - Maven
-- WebDriverManager
+- Extent Reports
+- Log4j2
+- Apache POI (Excel)
+- Commons Email
 
----
+## Project Structure
+Typical folders in this repo include:
 
-## Framework Architecture
+- `src/` — framework source + tests
+- `testng.xml` — TestNG suite runner
+- `pom.xml` — Maven dependencies + build config
+- `reports/` — generated Extent reports (HTML)
+- `test-output/` — TestNG output folder
+- `screenshots/` — screenshots captured during execution
+- `logs/` — Log4j2 logs
+- `testData/` — test data (often Excel files)
 
-### Base Layer
-Handles:
-- WebDriver initialization
-- Browser setup and teardown
-- Common test configurations
+## Key Highlights
+- Page Object Model (POM) for maintainability
+- Explicit waits to reduce flaky failures
+- Extent Reports integration for clear HTML reporting
+- Screenshot capture to support debugging and reporting
+- Log4j2 logging for execution traceability
+- Excel-based test data support (Apache POI)
+- Maven + TestNG execution (CI/CD friendly)
 
-### Page Layer (POM)
-- Encapsulates web elements
-- Contains reusable page actions
-- Centralizes locator management
+## Prerequisites
+- Java (recommended: 11+)
+- Maven
+- A supported browser (ex: Chrome)
 
-### Test Layer
-- Organized by feature
-- Uses TestNG annotations
-- Clean separation from UI logic
+## How To Run
 
-### Utilities
-- Wait utilities
-- Config reader
-- Screenshot handling
-- Reusable helpers
-
----
-
-## How to Execute
-
-### Run All Tests
-```
+## Run all tests (Maven)
+```bash
 mvn clean test
 ```
 
-### Run via TestNG XML
-Execute `testng.xml` from your IDE.
-
----
+## Run using TestNG suite
+Run `testng.xml` from your IDE (Right-click -> Run).
 
 ## Reporting
 
-Default TestNG reports generated under:
-```
-/test-output
-```
+## Extent Reports
+Extent Reports generate an HTML execution report (location depends on implementation).  
+Common output locations used in this repo:
+- `reports/`
+- `test-output/`
 
----
+## TestNG Reports
+TestNG default reports are generated under:
+- `test-output/`
 
-## CI/CD Integration
+## Logging
+Logging is handled using **Log4j2**. Logs are typically written under:
+- `logs/`
 
-Framework supports integration with:
-- GitHub Actions
-- Jenkins
-- Other CI tools
+## Test Data
+Excel/data-driven support is provided using **Apache POI**. Test data is typically stored under:
+- `testData/`
 
----
+## Notes
+- If you are running tests in parallel, ensure WebDriver handling is thread-safe (ex: ThreadLocal WebDriver).
+- Screenshots may be captured on failure for faster debugging.
 
 ## Author
-
-QA Automation Engineer specializing in scalable Selenium automation frameworks.
+QA Automation Engineer
